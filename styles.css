@@ -824,72 +824,114 @@ body {
     letter-spacing: 0.04em;
 }
 
-/* Sector Icons */
-.exp-sector-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--accent-dim);
-    border-radius: 12px;
-    margin-bottom: 12px;
-    transition: var(--transition);
+/* Sector specific colors & animations */
+[data-sector="construction"] { --sector-color: #e07a5f; --sector-glow: rgba(224, 122, 95, 0.4); }
+[data-sector="energy"] { --sector-color: #f9a825; --sector-glow: rgba(249, 168, 37, 0.4); }
+[data-sector="finance"] { --sector-color: #1565c0; --sector-glow: rgba(21, 101, 192, 0.4); }
+[data-sector="automotive"] { --sector-color: #7cb342; --sector-glow: rgba(124, 179, 66, 0.4); }
+
+/* Animated border gradient */
+.exp-card {
+    position: relative;
+    overflow: hidden;
 }
 
-.exp-sector-icon svg {
-    width: 26px;
-    height: 26px;
-    color: var(--accent);
-    transition: var(--transition);
+.exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--sector-color), transparent);
+    transition: left 0.6s ease;
 }
 
-.exp-card:hover .exp-sector-icon {
-    background: var(--accent);
-    transform: scale(1.1) rotate(-5deg);
+.exp-card:hover::before {
+    left: 100%;
 }
 
-.exp-card:hover .exp-sector-icon svg {
+/* Year color changes to sector color on hover */
+.exp-card:hover .exp-year {
+    color: var(--sector-color);
+}
+
+/* Glow effect on hover */
+.exp-card:hover {
+    box-shadow:
+        var(--shadow-medium),
+        0 0 30px var(--sector-glow);
+    border-color: var(--sector-color);
+}
+
+/* Company name underline animation */
+.exp-company {
+    position: relative;
+    display: inline-block;
+}
+
+.exp-company::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--sector-color);
+    transition: width 0.4s ease;
+}
+
+.exp-card:hover .exp-company::after {
+    width: 100%;
+}
+
+/* Staggered card animations on scroll */
+.exp-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: expCardReveal 0.6s ease forwards;
+}
+
+.exp-card:nth-child(1) { animation-delay: 0.1s; }
+.exp-card:nth-child(2) { animation-delay: 0.2s; }
+.exp-card:nth-child(3) { animation-delay: 0.3s; }
+.exp-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes expCardReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3D tilt effect on hover */
+.exp-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.exp-card:hover {
+    transform: translateX(6px) rotateY(-2deg) rotateX(1deg);
+}
+
+/* Tech stack tags animate on hover */
+.exp-stack span {
+    transition: all 0.3s ease;
+}
+
+.exp-card:hover .exp-stack span {
+    background: var(--sector-color);
     color: white;
+    transform: translateY(-2px);
 }
 
-/* Sector specific colors */
-[data-sector="construction"] { --sector-color: #e07a5f; }
-[data-sector="energy"] { --sector-color: #f9a825; }
-[data-sector="finance"] { --sector-color: #1565c0; }
-[data-sector="automotive"] { --sector-color: #7cb342; }
-
-[data-sector="construction"] .exp-sector-icon { background: rgba(224, 122, 95, 0.15); }
-[data-sector="energy"] .exp-sector-icon { background: rgba(249, 168, 37, 0.15); }
-[data-sector="finance"] .exp-sector-icon { background: rgba(21, 101, 192, 0.15); }
-[data-sector="automotive"] .exp-sector-icon { background: rgba(124, 179, 66, 0.15); }
-
-[data-sector="construction"] .exp-sector-icon svg { color: #e07a5f; }
-[data-sector="energy"] .exp-sector-icon svg { color: #f9a825; }
-[data-sector="finance"] .exp-sector-icon svg { color: #1565c0; }
-[data-sector="automotive"] .exp-sector-icon svg { color: #7cb342; }
-
-[data-sector="construction"]:hover .exp-sector-icon { background: #e07a5f; }
-[data-sector="energy"]:hover .exp-sector-icon { background: #f9a825; }
-[data-sector="finance"]:hover .exp-sector-icon { background: #1565c0; }
-[data-sector="automotive"]:hover .exp-sector-icon { background: #7cb342; }
-
-/* Sector Badge */
-.exp-sector-badge {
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border-radius: 100px;
-    background: var(--accent-dim);
-    color: var(--accent);
+.exp-card:hover .exp-stack span:nth-child(odd) {
+    transition-delay: 0.05s;
 }
 
-[data-sector="construction"] .exp-sector-badge { background: rgba(224, 122, 95, 0.15); color: #e07a5f; }
-[data-sector="energy"] .exp-sector-badge { background: rgba(249, 168, 37, 0.15); color: #c98600; }
-[data-sector="finance"] .exp-sector-badge { background: rgba(21, 101, 192, 0.15); color: #1565c0; }
-[data-sector="automotive"] .exp-sector-badge { background: rgba(124, 179, 66, 0.15); color: #558b2f; }
+.exp-card:hover .exp-stack span:nth-child(even) {
+    transition-delay: 0.1s;
+}
 
 .exp-header {
     display: flex;
