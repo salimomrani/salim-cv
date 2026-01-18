@@ -10,428 +10,507 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
+
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">SO</a>
+            <a href="#" class="nav-logo">
+                <span class="logo-text">S<span class="logo-dot"></span>O</span>
+            </a>
             <ul class="nav-menu">
-                <li><a href="#about">Profil</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#experience">Expériences</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" data-text="Profil">Profil</a></li>
+                <li><a href="#skills" data-text="Stack">Stack</a></li>
+                <li><a href="#experience" data-text="Parcours">Parcours</a></li>
+                <li><a href="#projects" data-text="Projets">Projets</a></li>
+                <li><a href="#contact" data-text="Contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-            </button>
-            <button class="nav-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-greeting">Bonjour, je suis</p>
-                <h1 class="hero-title">Salim Omrani</h1>
-                <h2 class="hero-subtitle">Développeur Full-Stack <span class="highlight">Java / Angular</span></h2>
-                <p class="hero-description">
-                    10 ans d'expérience • Architectures Industrielles • Performance & Cloud
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Disponible pour de nouvelles opportunités
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Salim</span>
+                    <span class="title-line title-outline">Omrani</span>
+                </h1>
+                <div class="hero-role">
+                    <span class="role-label">Full-Stack Developer</span>
+                    <span class="role-divider">/</span>
+                    <span class="role-tech">Java • Angular</span>
+                </div>
+                <p class="hero-tagline">
+                    Je conçois des <em>architectures robustes</em> et des <em>interfaces performantes</em>
+                    pour les environnements industriels critiques.
                 </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">10<span class="stat-plus">+</span></span>
+                        <span class="stat-label">ans d'XP</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">4</span>
+                        <span class="stat-label">entreprises</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-value">885</span>
+                        <span class="stat-label">TOEIC</span>
+                    </div>
+                </div>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Me contacter</a>
-                    <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Me contacter</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#experience" class="btn btn-ghost">Voir mon parcours</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="code-block">
-                    <div class="code-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+                <div class="code-window">
+                    <div class="window-bar">
+                        <div class="window-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="window-title">developer.ts</span>
                     </div>
-                    <pre><code><span class="keyword">const</span> developer = {
-  <span class="property">name</span>: <span class="string">"Salim Omrani"</span>,
-  <span class="property">role</span>: <span class="string">"Full-Stack Developer"</span>,
-  <span class="property">experience</span>: <span class="number">10</span>,
-  <span class="property">skills</span>: [<span class="string">"Java"</span>, <span class="string">"Angular"</span>, <span class="string">"Spring"</span>],
-  <span class="property">passionate</span>: <span class="boolean">true</span>
-};</code></pre>
+                    <pre class="code-content"><code><span class="code-keyword">interface</span> <span class="code-type">Developer</span> {
+  <span class="code-prop">name</span>: <span class="code-string">"Salim Omrani"</span>;
+  <span class="code-prop">role</span>: <span class="code-string">"Full-Stack"</span>;
+  <span class="code-prop">experience</span>: <span class="code-number">10</span>;
+  <span class="code-prop">stack</span>: [
+    <span class="code-string">"Java"</span>,
+    <span class="code-string">"Spring Boot"</span>,
+    <span class="code-string">"Angular"</span>
+  ];
+  <span class="code-prop">available</span>: <span class="code-boolean">true</span>;
+}</code></pre>
                 </div>
+                <div class="floating-badge badge-java">Java 17</div>
+                <div class="floating-badge badge-angular">Angular</div>
+                <div class="floating-badge badge-cloud">Cloud</div>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-cue">
             <span>Scroll</span>
-            <div class="scroll-arrow"></div>
+            <div class="scroll-line"></div>
         </div>
     </header>
 
-    <section id="about" class="section about">
+    <!-- About Section -->
+    <section id="about" class="section section-about">
         <div class="container">
-            <h2 class="section-title">À propos</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">
-                        Développeur expérimenté avec <strong>10 ans d'expérience</strong> dans des environnements
-                        industriels critiques (<strong>Saint-Gobain</strong>, <strong>TotalEnergies</strong>).
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">À propos</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-intro">
+                    <p class="intro-large">
+                        Développeur expérimenté évoluant dans des <strong>environnements industriels critiques</strong>
+                        depuis plus d'une décennie.
                     </p>
-                    <p>
-                        Je conçois des systèmes robustes (Spring Boot/Micro-services) et des interfaces
-                        performantes (Angular/NgRx). Orienté qualité, je privilégie le Clean Code,
+                    <p class="intro-body">
+                        De Saint-Gobain à TotalEnergies, je conçois des systèmes robustes avec Spring Boot
+                        et des interfaces performantes avec Angular. Orienté qualité, je privilégie le Clean Code,
                         le Pair Programming et l'automatisation DevOps.
                     </p>
-                    <div class="about-details">
-                        <div class="detail-item">
-                            <span class="detail-icon">📍</span>
-                            <span>Saint-Cloud, France</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-icon">🎓</span>
-                            <span>Master Expert Info & SI</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-icon">🗣️</span>
-                            <span>Français courant • Anglais professionnel (TOEIC 885)</span>
-                        </div>
-                    </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Années d'expérience</span>
+                <div class="about-details">
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 21c-4.97 0-9-2.686-9-6v-3c0-3.314 4.03-6 9-6s9 2.686 9 6v3c0 3.314-4.03 6-9 6z"/>
+                                <path d="M12 12c4.97 0 9-2.686 9-6S16.97 0 12 0 3 2.686 3 6s4.03 6 9 6z"/>
+                            </svg>
+                        </div>
+                        <span class="detail-label">Localisation</span>
+                        <span class="detail-value">Saint-Cloud, France</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number">4</span>
-                        <span class="stat-label">Grandes entreprises</span>
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <span class="detail-label">Formation</span>
+                        <span class="detail-value">Master Expert Info & SI</span>
                     </div>
-                    <div class="stat-card">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Projets majeurs</span>
+                    <div class="detail-card">
+                        <div class="detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <span class="detail-label">Langues</span>
+                        <span class="detail-value">FR natif • EN pro</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="section skills">
+    <!-- Skills Section -->
+    <section id="skills" class="section section-skills">
         <div class="container">
-            <h2 class="section-title">Compétences</h2>
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Stack technique</h2>
+            </div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-icon backend-icon">⚙️</div>
-                    <h3>Backend</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-tag">Java 8 à 17</span></li>
-                        <li><span class="skill-tag">Java EE</span></li>
-                        <li><span class="skill-tag">Spring Boot 3</span></li>
-                        <li><span class="skill-tag">Micro-services</span></li>
-                        <li><span class="skill-tag">Spring Cloud Feign</span></li>
-                        <li><span class="skill-tag">PostgreSQL</span></li>
-                        <li><span class="skill-tag">SQL Server</span></li>
-                        <li><span class="skill-tag">Hibernate/JPA</span></li>
-                        <li><span class="skill-tag">PHP/Laravel</span></li>
-                    </ul>
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-header">
+                        <span class="skill-icon">⚡</span>
+                        <h3>Backend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag tag-primary">Java 8-17</span>
+                        <span class="tag">Java EE</span>
+                        <span class="tag tag-primary">Spring Boot 3</span>
+                        <span class="tag">Micro-services</span>
+                        <span class="tag">Spring Cloud</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">Hibernate/JPA</span>
+                        <span class="tag">PHP/Laravel</span>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon frontend-icon">🎨</div>
-                    <h3>Frontend</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-tag">Angular v5 → v20</span></li>
-                        <li><span class="skill-tag">NgRx & Signals</span></li>
-                        <li><span class="skill-tag">RxJS</span></li>
-                        <li><span class="skill-tag">VueJS</span></li>
-                        <li><span class="skill-tag">Performance Analysis</span></li>
-                    </ul>
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-header">
+                        <span class="skill-icon">✦</span>
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag tag-primary">Angular 5→20</span>
+                        <span class="tag tag-primary">NgRx & Signals</span>
+                        <span class="tag">RxJS</span>
+                        <span class="tag">VueJS</span>
+                        <span class="tag">Performance</span>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon devops-icon">🚀</div>
-                    <h3>DevOps & Outils</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-tag">Docker</span></li>
-                        <li><span class="skill-tag">Kubernetes</span></li>
-                        <li><span class="skill-tag">AWS</span></li>
-                        <li><span class="skill-tag">Azure DevOps</span></li>
-                        <li><span class="skill-tag">Jenkins</span></li>
-                        <li><span class="skill-tag">GitLab CI</span></li>
-                        <li><span class="skill-tag">Terraform</span></li>
-                        <li><span class="skill-tag">SonarQube</span></li>
-                    </ul>
+                <div class="skill-card" data-category="devops">
+                    <div class="skill-header">
+                        <span class="skill-icon">◈</span>
+                        <h3>DevOps & Cloud</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag tag-primary">Docker</span>
+                        <span class="tag tag-primary">Kubernetes</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure DevOps</span>
+                        <span class="tag">Jenkins</span>
+                        <span class="tag">GitLab CI</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">SonarQube</span>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon soft-icon">🤝</div>
-                    <h3>Soft Skills</h3>
-                    <ul class="skill-list">
-                        <li><span class="skill-tag">Agile / Scrum</span></li>
-                        <li><span class="skill-tag">Pair Programming</span></li>
-                        <li><span class="skill-tag">Architecture</span></li>
-                        <li><span class="skill-tag">Rigueur</span></li>
-                    </ul>
+                <div class="skill-card" data-category="soft">
+                    <div class="skill-header">
+                        <span class="skill-icon">○</span>
+                        <h3>Méthodologies</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag">Agile / Scrum</span>
+                        <span class="tag">Pair Programming</span>
+                        <span class="tag">Clean Architecture</span>
+                        <span class="tag">Code Review</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section experience">
+    <!-- Experience Section -->
+    <section id="experience" class="section section-experience">
         <div class="container">
-            <h2 class="section-title">Expériences</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Saint-Gobain</h3>
-                            <span class="timeline-date">Mars 2022 – Mai 2025</span>
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Parcours</h2>
+            </div>
+            <div class="experience-list">
+                <article class="exp-card">
+                    <div class="exp-period">
+                        <span class="exp-year">2022</span>
+                        <span class="exp-duration">3 ans</span>
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3 class="exp-company">Saint-Gobain</h3>
+                            <span class="exp-date">Mars 2022 – Mai 2025</span>
                         </div>
-                        <h4>Développeur Front-End Angular (70%) / Back-End Java (30%)</h4>
-                        <p class="timeline-project">Projet ERP ATLAS</p>
-                        <ul class="timeline-achievements">
-                            <li><strong>Performance Front-End :</strong> Pilotage de la migration Angular 9 → 15. Diagnostic et correction de fuites mémoires via Chrome Profiling.</li>
-                            <li><strong>Qualité :</strong> Optimisation des tests Jest et instauration du Pair Programming.</li>
-                            <li><strong>Architecture Micro-services :</strong> Développement de services interconnectés via Eureka et Feign.</li>
-                            <li><strong>Intégration SAP :</strong> Co-construction des contrats d'interface (Modules Commandes/Stocks).</li>
+                        <p class="exp-role">Développeur Front-End Angular (70%) / Back-End Java (30%)</p>
+                        <p class="exp-project">Projet ERP ATLAS</p>
+                        <ul class="exp-achievements">
+                            <li>Pilotage migration Angular 9 → 15, correction fuites mémoires via Chrome Profiling</li>
+                            <li>Architecture micro-services avec Eureka et Feign</li>
+                            <li>Intégration SAP (Modules Commandes/Stocks)</li>
                         </ul>
-                        <div class="timeline-stack">
+                        <div class="exp-stack">
                             <span>Java 17</span>
                             <span>Spring Boot</span>
-                            <span>Feign</span>
                             <span>Angular 15</span>
                             <span>NgRx</span>
                             <span>SAP</span>
-                            <span>Azure DevOps</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>TotalEnergies</h3>
-                            <span class="timeline-date">Janv. 2019 – Mars 2022</span>
+                <article class="exp-card">
+                    <div class="exp-period">
+                        <span class="exp-year">2019</span>
+                        <span class="exp-duration">3 ans</span>
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3 class="exp-company">TotalEnergies</h3>
+                            <span class="exp-date">Janv. 2019 – Mars 2022</span>
                         </div>
-                        <h4>Ingénieur Développement Web</h4>
-                        <p class="timeline-project">Digical Factory</p>
-                        <ul class="timeline-achievements">
-                            <li>Développement d'outils d'aide à la décision dans un contexte industriel à forts enjeux.</li>
-                            <li>Conception d'algorithmes de comparaison de fluides basés sur des analyses physiques complexes.</li>
-                            <li>Création de librairies Angular internes pour standardiser l'UI des applications du groupe.</li>
+                        <p class="exp-role">Ingénieur Développement Web</p>
+                        <p class="exp-project">Digical Factory</p>
+                        <ul class="exp-achievements">
+                            <li>Outils d'aide à la décision en contexte industriel critique</li>
+                            <li>Algorithmes de comparaison de fluides</li>
+                            <li>Librairies Angular internes pour standardisation UI</li>
                         </ul>
-                        <div class="timeline-stack">
+                        <div class="exp-stack">
                             <span>Angular 13</span>
                             <span>Java 11</span>
                             <span>Spring Boot</span>
                             <span>Laravel</span>
-                            <span>Maven</span>
-                            <span>Azure DevOps</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Allianz France</h3>
-                            <span class="timeline-date">Oct. 2017 – Janv. 2019</span>
+                <article class="exp-card">
+                    <div class="exp-period">
+                        <span class="exp-year">2017</span>
+                        <span class="exp-duration">1.5 an</span>
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3 class="exp-company">Allianz France</h3>
+                            <span class="exp-date">Oct. 2017 – Janv. 2019</span>
                         </div>
-                        <h4>Développeur Full-Stack</h4>
-                        <ul class="timeline-achievements">
-                            <li>Projet réglementaire européen "Devoir de Conseil".</li>
-                            <li>Migration de l'architecture Angular 5 vers 7 et refonte front-end (AngularJS).</li>
-                            <li>Gestion des livraisons et de l'intégration continue via Jenkins.</li>
-                            <li>Automatisation de la chaîne de build via Gulp et Browserify.</li>
+                        <p class="exp-role">Développeur Full-Stack</p>
+                        <ul class="exp-achievements">
+                            <li>Projet réglementaire européen "Devoir de Conseil"</li>
+                            <li>Migration Angular 5 → 7, refonte AngularJS</li>
+                            <li>CI/CD via Jenkins, automatisation Gulp</li>
                         </ul>
-                        <div class="timeline-stack">
+                        <div class="exp-stack">
                             <span>Java 8</span>
                             <span>Spring Boot</span>
                             <span>Angular 7</span>
-                            <span>AngularJS 1.4</span>
                             <span>Jenkins</span>
-                            <span>Sonar</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Aptiv</h3>
-                            <span class="timeline-date">Oct. 2015 – Sept. 2017</span>
+                <article class="exp-card">
+                    <div class="exp-period">
+                        <span class="exp-year">2014</span>
+                        <span class="exp-duration">3 ans</span>
+                    </div>
+                    <div class="exp-content">
+                        <div class="exp-header">
+                            <h3 class="exp-company">Aptiv</h3>
+                            <span class="exp-date">Oct. 2014 – Sept. 2017</span>
                         </div>
-                        <h4>Développeur Full-Stack</h4>
-                        <p class="timeline-project">Application de gestion des commandes de pièces détachées</p>
-                        <ul class="timeline-achievements">
-                            <li>Conception d'une application web de prise de commande avec visibilité globale des dépenses par secteur.</li>
-                            <li><strong>Module administratif :</strong> Commande de pièces détachées, demande de devis.</li>
-                            <li><strong>Module consultation :</strong> Suivi des commandes et statuts en temps réel.</li>
-                            <li><strong>Module statistique :</strong> Tableaux de bord et charts analytiques.</li>
-                            <li><strong>Module archivage :</strong> Gestion des commandes réceptionnées.</li>
-                            <li>Proposition de solution technique, rédaction du cahier des charges et formation utilisateurs.</li>
+                        <p class="exp-role">Développeur Full-Stack</p>
+                        <p class="exp-project">Applications de gestion industrielle</p>
+                        <ul class="exp-achievements">
+                            <li>App gestion commandes pièces détachées (PHP/Laravel/VueJS)</li>
+                            <li>App maintenance industrielle (Java EE/PrimeFaces)</li>
+                            <li>Rédaction cahier des charges, formation utilisateurs</li>
                         </ul>
-                        <div class="timeline-stack">
+                        <div class="exp-stack">
+                            <span>Java EE</span>
                             <span>PHP 7</span>
                             <span>Laravel</span>
                             <span>VueJS</span>
-                            <span>Bootstrap</span>
-                            <span>Semantic-UI</span>
-                            <span>Git</span>
-                            <span>NPM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Aptiv</h3>
-                            <span class="timeline-date">Oct. 2014 – Oct. 2015</span>
-                        </div>
-                        <h4>Développeur Full-Stack</h4>
-                        <p class="timeline-project">Application de gestion de maintenance industrielle</p>
-                        <ul class="timeline-achievements">
-                            <li>Conception d'une application pour les équipes de maintenance : suivi, planification, budget et optimisation.</li>
-                            <li>Proposition de solution technique et participation à la rédaction du cahier des charges.</li>
-                            <li>Conception, développement et maintenance de l'application.</li>
-                            <li>Formation des utilisateurs finaux.</li>
-                        </ul>
-                        <div class="timeline-stack">
-                            <span>Java EE</span>
-                            <span>PrimeFaces</span>
-                            <span>JPA</span>
-                            <span>Bootstrap</span>
                             <span>SQL Server</span>
-                            <span>GlassFish</span>
-                            <span>SVN</span>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section projects">
+    <!-- Projects Section -->
+    <section id="projects" class="section section-projects">
         <div class="container">
-            <h2 class="section-title">Projets personnels</h2>
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Projets</h2>
+            </div>
             <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-header">
-                        <span class="project-icon">🚚</span>
+                <article class="project-card project-featured">
+                    <div class="project-image">
+                        <div class="project-visual">
+                            <span class="visual-icon">🚚</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
                         <span class="project-date">Déc 2025</span>
-                    </div>
-                    <h3>TruckTrack</h3>
-                    <p class="project-subtitle">Système de Tracking GPS Temps Réel</p>
-                    <ul class="project-features">
-                        <li>Architecture 5 microservices event-driven (Kafka)</li>
-                        <li>Carte interactive avec WebSocket, routing réel (OSRM)</li>
-                        <li>Alertes configurables + notifications push (Firebase)</li>
-                        <li>Application mobile chauffeur en React Native</li>
-                        <li>Infrastructure as Code (Terraform) et déploiement K8s sur AWS</li>
-                    </ul>
-                    <div class="project-stack">
-                        <span>Java 17</span>
-                        <span>Spring Boot 3.2</span>
-                        <span>Angular 21</span>
-                        <span>Kafka</span>
-                        <span>PostGIS</span>
-                        <span>Redis</span>
-                        <span>React Native</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/salimomrani/trucktrack" target="_blank" rel="noopener" class="project-link">
-                            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            GitHub
+                        <h3 class="project-title">TruckTrack</h3>
+                        <p class="project-desc">Système de Tracking GPS temps réel avec architecture microservices</p>
+                        <ul class="project-features">
+                            <li>5 microservices event-driven (Kafka)</li>
+                            <li>Carte interactive WebSocket + OSRM</li>
+                            <li>App mobile React Native</li>
+                            <li>Infrastructure Terraform + K8s AWS</li>
+                        </ul>
+                        <div class="project-stack">
+                            <span>Java 17</span>
+                            <span>Spring Boot</span>
+                            <span>Angular</span>
+                            <span>Kafka</span>
+                            <span>K8s</span>
+                        </div>
+                        <a href="https://github.com/salimomrani/trucktrack" target="_blank" class="project-link">
+                            <span>Voir sur GitHub</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
                         </a>
                     </div>
                 </article>
 
                 <article class="project-card">
-                    <div class="project-header">
-                        <span class="project-icon">📝</span>
+                    <div class="project-image">
+                        <div class="project-visual">
+                            <span class="visual-icon">📝</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
                         <span class="project-date">Nov 2025</span>
-                    </div>
-                    <h3>Blog Technique Full-Stack</h3>
-                    <p class="project-subtitle">Architecture Cloud</p>
-                    <ul class="project-features">
-                        <li>Stack moderne : Angular 20 (Signals, standalone components)</li>
-                        <li>Backend Spring Boot 3.5</li>
-                        <li>Authentification JWT avec gestion des rôles</li>
-                        <li>Infrastructure as Code (Terraform)</li>
-                        <li>Déploiement Kubernetes sur AWS</li>
-                    </ul>
-                    <div class="project-stack">
-                        <span>Angular 20</span>
-                        <span>Spring Boot 3.5</span>
-                        <span>Terraform</span>
-                        <span>Kubernetes</span>
-                        <span>PostgreSQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/salimomrani/blog" target="_blank" rel="noopener" class="project-link">
-                            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            Frontend
-                        </a>
-                        <a href="https://gitlab.com/salimomrani1/backend" target="_blank" rel="noopener" class="project-link">
-                            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"/></svg>
-                            Backend
-                        </a>
+                        <h3 class="project-title">Blog Technique</h3>
+                        <p class="project-desc">Architecture Cloud moderne avec Angular 20 et Spring Boot 3.5</p>
+                        <ul class="project-features">
+                            <li>Angular 20 Signals + standalone</li>
+                            <li>Auth JWT avec rôles</li>
+                            <li>IaC Terraform + K8s</li>
+                        </ul>
+                        <div class="project-stack">
+                            <span>Angular 20</span>
+                            <span>Spring Boot</span>
+                            <span>Terraform</span>
+                            <span>K8s</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/salimomrani/blog" target="_blank" class="project-link">
+                                <span>Frontend</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                </svg>
+                            </a>
+                            <a href="https://gitlab.com/salimomrani1/backend" target="_blank" class="project-link">
+                                <span>Backend</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <!-- Contact Section -->
+    <section id="contact" class="section section-contact">
         <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-content">
-                <p class="contact-intro">
-                    Intéressé par mon profil ? N'hésitez pas à me contacter pour discuter de vos projets.
-                </p>
-                <div class="contact-cards">
+            <div class="contact-wrapper">
+                <div class="contact-header">
+                    <span class="section-number">05</span>
+                    <h2 class="contact-title">Travaillons<br>ensemble</h2>
+                    <p class="contact-intro">
+                        Intéressé par mon profil ? Discutons de vos projets.
+                    </p>
+                </div>
+                <div class="contact-grid">
                     <a href="mailto:omrani_salim@outlook.fr" class="contact-card">
-                        <div class="contact-icon">✉️</div>
-                        <h3>Email</h3>
-                        <p>omrani_salim@outlook.fr</p>
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M22 6L12 13 2 6"/>
+                            </svg>
+                        </div>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">omrani_salim@outlook.fr</span>
                     </a>
                     <a href="tel:+33689819431" class="contact-card">
-                        <div class="contact-icon">📱</div>
-                        <h3>Téléphone</h3>
-                        <p>06 89 81 94 31</p>
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <span class="contact-label">Téléphone</span>
+                        <span class="contact-value">06 89 81 94 31</span>
                     </a>
-                    <a href="https://github.com/salimomrani" target="_blank" rel="noopener" class="contact-card">
-                        <div class="contact-icon">💻</div>
-                        <h3>GitHub</h3>
-                        <p>github.com/salimomrani</p>
+                    <a href="https://github.com/salimomrani" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">@salimomrani</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Salim Omrani. Tous droits réservés.</p>
+            <div class="footer-content">
+                <span class="footer-copy">© 2025 Salim Omrani</span>
+                <span class="footer-location">Saint-Cloud, France</span>
+            </div>
         </div>
     </footer>
 
