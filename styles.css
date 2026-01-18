@@ -4,8 +4,7 @@
    Typography: DM Sans (Display) + Fira Code (Code)
    ═══════════════════════════════════════════════════════════════ */
 
-/* ═══ Import Fonts ═══ */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fira+Code:wght@400;500&display=swap');
+/* ═══ Fonts loaded via HTML for performance ═══ */
 
 /* ═══ CSS Variables ═══ */
 :root {
@@ -17,7 +16,7 @@
 
     --text-primary: #2d2a26;
     --text-secondary: #5c574f;
-    --text-muted: #9a958c;
+    --text-muted: #706b63;
 
     --accent: #e07a5f;
     --accent-soft: #f4a582;
@@ -53,7 +52,7 @@
 
     --text-primary: #f5f2ed;
     --text-secondary: #b8b3aa;
-    --text-muted: #7a756c;
+    --text-muted: #9a958c;
 
     --accent: #f4a582;
     --accent-soft: #e07a5f;
