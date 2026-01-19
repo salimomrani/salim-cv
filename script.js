@@ -141,7 +141,7 @@ function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
     html.setAttribute('lang', lang);
-    langText.textContent = lang === 'fr' ? 'EN' : 'FR';
+    langText.textContent = lang.toUpperCase();
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -157,9 +157,7 @@ function setLanguage(lang) {
 }
 
 // Initialize language
-if (currentLang !== 'fr') {
-    setLanguage(currentLang);
-}
+setLanguage(currentLang);
 
 langToggle.addEventListener('click', () => {
     setLanguage(currentLang === 'fr' ? 'en' : 'fr');
