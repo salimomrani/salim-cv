@@ -1,3 +1,5 @@
+const html = document.documentElement;
+
 // Translations
 const translations = {
     en: {
@@ -165,7 +167,6 @@ langToggle.addEventListener('click', () => {
 
 // Dark Mode Toggle
 const themeToggle = document.querySelector('.theme-toggle');
-const html = document.documentElement;
 
 // Check for saved theme preference or default to system preference
 const savedTheme = localStorage.getItem('theme');
