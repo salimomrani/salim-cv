@@ -217,35 +217,120 @@ window.addEventListener('scroll', () => {
 // Intersection Observer for scroll animations
 const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.1
+    rootMargin: '-50px',
+    threshold: 0.15
 };
 
-const observer = new IntersectionObserver((entries) => {
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            // Don't unobserve to allow re-animation on scroll up/down
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.querySelectorAll('.timeline-item, .skill-category, .project-card, .stat-card, .contact-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+// Observe all animated elements
+const animatedElements = document.querySelectorAll(
+    '.fade-in-up, .scale-fade, .slide-in-left, .slide-in-right, .stagger-children, ' +
+    '.section-header, .about-grid, .skills-grid, .experience-list, .projects-grid, .contact-content'
+);
+
+animatedElements.forEach(el => {
+    // Add default fade-in-up class if no animation class present
+    if (!el.classList.contains('fade-in-up') &&
+        !el.classList.contains('scale-fade') &&
+        !el.classList.contains('slide-in-left') &&
+        !el.classList.contains('slide-in-right') &&
+        !el.classList.contains('stagger-children')) {
+        el.classList.add('fade-in-up');
+    }
+    scrollObserver.observe(el);
 });
 
-// Add visible class styles
-const style = document.createElement('style');
-style.textContent = `
-    .visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(style);
+// Add stagger animation to grids
+document.querySelectorAll('.skills-grid, .about-details, .projects-grid').forEach(el => {
+    el.classList.add('stagger-children');
+    scrollObserver.observe(el);
+});
+
+// Observe exp-cards for visibility (they have their own CSS animation)
+document.querySelectorAll('.exp-card').forEach(el => {
+    scrollObserver.observe(el);
+});
+
+// Parallax effect for hero gradient
+const heroGradient = document.querySelector('.hero-gradient');
+if (heroGradient) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * 0.3;
+        heroGradient.style.transform = `translateY(${rate}px)`;
+    }, { passive: true });
+}
+
+// Mouse move parallax for floating badges
+const floatingBadges = document.querySelectorAll('.floating-badge');
+if (floatingBadges.length > 0) {
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX / window.innerWidth - 0.5;
+        const mouseY = e.clientY / window.innerHeight - 0.5;
+
+        floatingBadges.forEach((badge, index) => {
+            const depth = (index + 1) * 10;
+            const moveX = mouseX * depth;
+            const moveY = mouseY * depth;
+            badge.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    }, { passive: true });
+}
+
+// Counter animation for stats
+const animateCounter = (element, target, duration = 2000) => {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+
+    const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+            element.textContent = Math.floor(current);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    };
+
+    updateCounter();
+};
+
+// Observe stats for counter animation
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statValues = entry.target.querySelectorAll('.stat-value');
+            statValues.forEach(stat => {
+                const text = stat.textContent;
+                const number = parseInt(text);
+                if (!isNaN(number) && !stat.dataset.animated) {
+                    stat.dataset.animated = 'true';
+                    const suffix = text.replace(number, '');
+                    animateCounter(stat, number, 1500);
+                    // Re-add suffix after animation
+                    setTimeout(() => {
+                        stat.innerHTML = `${number}<span class="stat-plus">${suffix.includes('+') ? '+' : ''}</span>`;
+                    }, 1600);
+                }
+            });
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) {
+    statsObserver.observe(heroStats);
+}
 
 // Active navigation link on scroll
 const sections = document.querySelectorAll('section[id]');
