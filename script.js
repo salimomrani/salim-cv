@@ -387,3 +387,115 @@ if (codeBlock) {
     // Start typing effect after a short delay
     setTimeout(typeWriter, 500);
 }
+
+// ===========================================
+// Google Analytics 4 - Custom Event Tracking
+// ===========================================
+
+// Helper function to send GA4 events
+function trackEvent(eventName, params = {}) {
+    if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+    }
+}
+
+// 1. Scroll Depth Tracking (25%, 50%, 75%, 100%)
+const scrollThresholds = [25, 50, 75, 100];
+const scrollTriggered = new Set();
+
+window.addEventListener('scroll', () => {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = Math.round((window.scrollY / scrollHeight) * 100);
+
+    scrollThresholds.forEach(threshold => {
+        if (scrollPercent >= threshold && !scrollTriggered.has(threshold)) {
+            scrollTriggered.add(threshold);
+            trackEvent('scroll_depth', {
+                percent_scrolled: threshold,
+                page_title: document.title
+            });
+        }
+    });
+}, { passive: true });
+
+// 2. CTA Button Clicks
+document.querySelectorAll('.btn-primary, .btn-ghost').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const btnText = btn.textContent.trim();
+        const isDownload = btn.hasAttribute('download');
+
+        trackEvent(isDownload ? 'cv_download' : 'cta_click', {
+            button_text: btnText,
+            button_type: btn.classList.contains('btn-primary') ? 'primary' : 'ghost'
+        });
+    });
+});
+
+// 3. Navigation Clicks
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        const section = link.getAttribute('href');
+        trackEvent('navigation_click', {
+            section_target: section,
+            link_text: link.textContent.trim()
+        });
+    });
+});
+
+// 4. External Links (GitHub, etc.)
+document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    link.addEventListener('click', () => {
+        trackEvent('external_link_click', {
+            link_url: link.href,
+            link_text: link.textContent.trim()
+        });
+    });
+});
+
+// 5. Contact Links (Email, Phone)
+document.querySelectorAll('.contact-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const href = link.getAttribute('href');
+        let contactType = 'other';
+
+        if (href.startsWith('mailto:')) contactType = 'email';
+        else if (href.startsWith('tel:')) contactType = 'phone';
+        else if (href.includes('github')) contactType = 'github';
+
+        trackEvent('contact_click', {
+            contact_type: contactType,
+            contact_value: href
+        });
+    });
+});
+
+// 6. Section Visibility Tracking
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute('id');
+            trackEvent('section_view', {
+                section_id: sectionId
+            });
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('section[id]').forEach(section => {
+    sectionObserver.observe(section);
+});
+
+// 7. Language Toggle Tracking
+document.querySelector('.lang-toggle')?.addEventListener('click', () => {
+    trackEvent('language_change', {
+        new_language: currentLang === 'fr' ? 'en' : 'fr'
+    });
+});
+
+// 8. Theme Toggle Tracking
+document.querySelector('.theme-toggle')?.addEventListener('click', () => {
+    const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    trackEvent('theme_change', {
+        new_theme: newTheme
+    });
+});
