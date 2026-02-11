@@ -78,6 +78,14 @@ const translations = {
     "projects.truck.feature3": "React Native mobile app",
     "projects.truck.feature4": "Terraform + K8s AWS infrastructure",
     "projects.viewGithub": "View on GitHub",
+    "projects.forgekit.date": "Feb 2026",
+    "projects.forgekit.desc":
+      "Full-Stack scaffolding CLI <strong>Spring Boot + Angular</strong> — one command, one ready-to-use project",
+    "projects.forgekit.feature1":
+      "Spring Boot + Angular project generation in one command",
+    "projects.forgekit.feature2":
+      "Pre-configured templates with built-in best practices",
+    "projects.forgekit.feature3": "Interactive TypeScript CLI with Node.js",
     "projects.hra.date": "Feb 2026",
     "projects.hra.desc":
       "Intelligent HR assistant powered by <strong>RAG</strong> (Retrieval-Augmented Generation)",
@@ -172,6 +180,14 @@ const translations = {
     "projects.truck.feature3": "App mobile React Native",
     "projects.truck.feature4": "Infrastructure Terraform + K8s AWS",
     "projects.viewGithub": "Voir sur GitHub",
+    "projects.forgekit.date": "Fév 2026",
+    "projects.forgekit.desc":
+      "CLI de scaffolding <strong>Full-Stack Spring Boot + Angular</strong> — une commande, un projet prêt à l'emploi",
+    "projects.forgekit.feature1":
+      "Génération de projets Spring Boot + Angular en une commande",
+    "projects.forgekit.feature2":
+      "Templates préconfigurés avec bonnes pratiques intégrées",
+    "projects.forgekit.feature3": "CLI interactive en TypeScript avec Node.js",
     "projects.hra.date": "Fév 2026",
     "projects.hra.desc":
       "Assistant RH intelligent propulsé par <strong>RAG</strong> (Retrieval-Augmented Generation)",
