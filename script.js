@@ -80,12 +80,13 @@ const translations = {
     "projects.viewGithub": "View on GitHub",
     "projects.forgekit.date": "Feb 2026",
     "projects.forgekit.desc":
-      "Full-Stack scaffolding CLI <strong>Spring Boot + Angular</strong> — one command, one ready-to-use project",
+      "Full-stack scaffolding CLI — choose your backend (<strong>Spring Boot or FastAPI</strong>), your frontend, and launch.",
     "projects.forgekit.feature1":
-      "Spring Boot + Angular project generation in one command",
+      "Multi-backend: Spring Boot (Java 21) or FastAPI (Python 3.12)",
     "projects.forgekit.feature2":
       "Pre-configured templates with built-in best practices",
-    "projects.forgekit.feature3": "Interactive TypeScript CLI with Node.js",
+    "projects.forgekit.feature3":
+      "Interactive TypeScript CLI with wizard and direct command mode",
     "projects.hra.date": "Feb 2026",
     "projects.hra.desc":
       "Intelligent HR assistant powered by <strong>RAG</strong> (Retrieval-Augmented Generation)",
@@ -182,12 +183,13 @@ const translations = {
     "projects.viewGithub": "Voir sur GitHub",
     "projects.forgekit.date": "Fév 2026",
     "projects.forgekit.desc":
-      "CLI de scaffolding <strong>Full-Stack Spring Boot + Angular</strong> — une commande, un projet prêt à l'emploi",
+      "CLI de scaffolding full-stack — choisissez votre backend (<strong>Spring Boot ou FastAPI</strong>), votre frontend, et lancez.",
     "projects.forgekit.feature1":
-      "Génération de projets Spring Boot + Angular en une commande",
+      "Multi-backend : Spring Boot (Java 21) ou FastAPI (Python 3.12)",
     "projects.forgekit.feature2":
       "Templates préconfigurés avec bonnes pratiques intégrées",
-    "projects.forgekit.feature3": "CLI interactive en TypeScript avec Node.js",
+    "projects.forgekit.feature3":
+      "CLI interactive en TypeScript avec wizard et mode commande directe",
     "projects.hra.date": "Fév 2026",
     "projects.hra.desc":
       "Assistant RH intelligent propulsé par <strong>RAG</strong> (Retrieval-Augmented Generation)",
