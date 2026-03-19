@@ -80,13 +80,15 @@ const translations = {
     "projects.viewGithub": "View on GitHub",
     "projects.forgekit.date": "Feb 2026",
     "projects.forgekit.desc":
-      "Full-stack scaffolding CLI — choose your backend (<strong>Spring Boot or FastAPI</strong>), your frontend, and launch.",
+      "Full-stack scaffolding CLI — a production-ready project in one command (<strong>Spring Boot, FastAPI, Angular, React</strong>).",
     "projects.forgekit.feature1":
       "Multi-backend: Spring Boot (Java 21) or FastAPI (Python 3.12)",
     "projects.forgekit.feature2":
-      "Pre-configured templates with built-in best practices",
+      "Multi-frontend: Angular 19 (NgRx SignalStore) or React 19 (Vite + Tailwind CSS v4)",
     "projects.forgekit.feature3":
-      "Interactive TypeScript CLI with wizard and direct command mode",
+      "JWT Auth, GitHub Actions CI/CD, Docker Compose included",
+    "projects.forgekit.feature4":
+      "Claude Code integration + Speckit workflow (spec → plan → tasks → TDD)",
     "projects.hra.date": "Feb 2026",
     "projects.hra.desc":
       "Intelligent HR assistant powered by <strong>RAG</strong> (Retrieval-Augmented Generation)",
@@ -95,6 +97,14 @@ const translations = {
       "Angular 21 frontend with conversational interface",
     "projects.hra.feature3": "pgvector for embedding storage",
     "projects.hra.feature4": "Redis cache for performance",
+    "projects.ragkit.date": "Feb 2026",
+    "projects.ragkit.desc":
+      "<strong>RAG</strong> API + Angular UI — modular, local-first augmented generation pipeline",
+    "projects.ragkit.feature1": "FastAPI + LangChain for the RAG pipeline",
+    "projects.ragkit.feature2": "ChromaDB for vector storage",
+    "projects.ragkit.feature3": "Ollama for local LLM inference",
+    "projects.ragkit.feature4":
+      "Angular 21 frontend with conversational interface",
     "projects.blog.date": "Nov 2025",
     "projects.blog.title": "Tech Blog",
     "projects.blog.desc":
@@ -183,13 +193,15 @@ const translations = {
     "projects.viewGithub": "Voir sur GitHub",
     "projects.forgekit.date": "Fév 2026",
     "projects.forgekit.desc":
-      "CLI de scaffolding full-stack — choisissez votre backend (<strong>Spring Boot ou FastAPI</strong>), votre frontend, et lancez.",
+      "CLI de scaffolding full-stack — un projet production-ready en une commande (<strong>Spring Boot, FastAPI, Angular, React</strong>).",
     "projects.forgekit.feature1":
       "Multi-backend : Spring Boot (Java 21) ou FastAPI (Python 3.12)",
     "projects.forgekit.feature2":
-      "Templates préconfigurés avec bonnes pratiques intégrées",
+      "Multi-frontend : Angular 19 (NgRx SignalStore) ou React 19 (Vite + Tailwind CSS v4)",
     "projects.forgekit.feature3":
-      "CLI interactive en TypeScript avec wizard et mode commande directe",
+      "Auth JWT, CI/CD GitHub Actions, Docker Compose intégrés",
+    "projects.forgekit.feature4":
+      "Intégration Claude Code + workflow Speckit (spec → plan → tasks → TDD)",
     "projects.hra.date": "Fév 2026",
     "projects.hra.desc":
       "Assistant RH intelligent propulsé par <strong>RAG</strong> (Retrieval-Augmented Generation)",
@@ -198,6 +210,14 @@ const translations = {
       "Frontend Angular 21 avec interface conversationnelle",
     "projects.hra.feature3": "pgvector pour le stockage d'embeddings",
     "projects.hra.feature4": "Cache Redis pour les performances",
+    "projects.ragkit.date": "Fév 2026",
+    "projects.ragkit.desc":
+      "API <strong>RAG</strong> + UI Angular — pipeline de génération augmentée modulaire et local-first",
+    "projects.ragkit.feature1": "FastAPI + LangChain pour le pipeline RAG",
+    "projects.ragkit.feature2": "ChromaDB pour le stockage vectoriel",
+    "projects.ragkit.feature3": "Ollama pour l'inférence LLM en local",
+    "projects.ragkit.feature4":
+      "Frontend Angular 21 avec interface conversationnelle",
     "projects.blog.date": "Nov 2025",
     "projects.blog.title": "Blog Technique",
     "projects.blog.desc":
@@ -485,7 +505,11 @@ if (codeBlock) {
 
 // Helper function to send GA4 events
 function trackEvent(eventName, params = {}) {
-  if (typeof gtag === "function") {
+  if (
+    typeof gtag === "function" &&
+    location.hostname !== "localhost" &&
+    location.hostname !== "127.0.0.1"
+  ) {
     gtag("event", eventName, params);
   }
 }
