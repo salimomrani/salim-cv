@@ -8,7 +8,7 @@ const translations = {
     "nav.projects": "Projects",
     "hero.badge": "Available for new opportunities",
     "hero.tagline":
-      "I design <em>robust architectures</em> and <em>high-performance interfaces</em> for critical industrial environments.",
+      "I build with <em>agentic AI</em> at the core of my workflow — <em>Claude Code</em>, <em>Codex CLI</em> and MCP — to ship faster with higher quality.",
     "hero.stats.years": "years XP",
     "hero.stats.companies": "companies",
     "hero.cta.contact": "Contact me",
@@ -18,7 +18,7 @@ const translations = {
     "about.intro":
       "<strong>Full-Stack Java / Angular</strong> Developer with over 10 years of experience in web application development.",
     "about.body":
-      "I design complete solutions, from backend with Spring Boot to user interfaces with Angular. I have worked for major companies like Saint-Gobain, TotalEnergies and Allianz on various projects. Passionate about clean code, teamwork and DevOps automation.",
+      "After 10 years designing full-stack solutions (Spring Boot, Angular) for Saint-Gobain, TotalEnergies and Allianz, I've pivoted to an <strong>agentic AI</strong>-centric approach: daily pair-programming with <strong>Claude Code</strong> and <strong>Codex CLI</strong>, MCP server integration and Spec-Driven workflow (spec → plan → tasks → TDD). AI agents are no longer just assistants — they're full collaborators in the dev cycle.",
     "about.location": "Location",
     "about.education": "Education",
     "about.educationValue": "Master IT & IS Expert",
@@ -119,7 +119,7 @@ const translations = {
     "nav.projects": "Projets",
     "hero.badge": "Disponible pour de nouvelles opportunités",
     "hero.tagline":
-      "Je conçois des <em>architectures robustes</em> et des <em>interfaces performantes</em> pour les environnements industriels critiques.",
+      "Je développe avec l'<em>IA agentique</em> au cœur de mon workflow — <em>Claude Code</em>, <em>Codex CLI</em> et MCP — pour livrer plus vite et avec une meilleure qualité.",
     "hero.stats.years": "ans d'XP",
     "hero.stats.companies": "entreprises",
     "hero.cta.contact": "Me contacter",
@@ -129,7 +129,7 @@ const translations = {
     "about.intro":
       "Développeur <strong>Full-Stack Java / Angular</strong> avec plus de 10 ans d'expérience dans le développement d'applications web.",
     "about.body":
-      "Je conçois des solutions complètes, du backend avec Spring Boot aux interfaces utilisateur avec Angular. J'ai travaillé pour des grands groupes comme Saint-Gobain, TotalEnergies et Allianz sur des projets variés. Passionné par le code propre, le travail en équipe et l'automatisation DevOps.",
+      "Après 10 ans à concevoir des solutions full-stack (Spring Boot, Angular) pour Saint-Gobain, TotalEnergies et Allianz, j'ai pivoté vers une approche centrée sur l'<strong>IA agentique</strong> : pair-programming au quotidien avec <strong>Claude Code</strong> et <strong>Codex CLI</strong>, intégration de serveurs MCP et workflow Spec-Driven (spec → plan → tasks → TDD). Les agents IA ne sont plus de simples assistants, mais des collaborateurs à part entière dans le cycle de développement.",
     "about.location": "Localisation",
     "about.education": "Formation",
     "about.educationValue": "Master Expert Info & SI",
